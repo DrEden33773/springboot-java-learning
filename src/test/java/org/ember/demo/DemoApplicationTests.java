@@ -34,23 +34,17 @@ class DemoApplicationTests {
     @Test
     void mybatisPlusGenerator() {
         FastAutoGenerator.create(new DataSourceConfig.Builder(dataSource))
-                .globalConfig(builder -> {
-                    builder.author("eden").outputDir("src\\main\\java");
-                })
-                .packageConfig(builder -> {
-                    builder.parent("org.ember.demo");
-                })
-                .strategyConfig(builder -> {
-                    builder.mapperBuilder()
-                            .mapperAnnotation(Mapper.class)
-                            .entityBuilder()
-                            .enableLombok()
-                            .enableTableFieldAnnotation()
-                            .enableChainModel()
-                            .controllerBuilder()
-                            .enableRestStyle()
-                            .build();
-                })
+                .globalConfig(builder -> builder.author("eden").outputDir("src\\main\\java"))
+                .packageConfig(builder -> builder.parent("org.ember.demo"))
+                .strategyConfig(builder -> builder.mapperBuilder()
+                        .mapperAnnotation(Mapper.class)
+                        .entityBuilder()
+                        .enableLombok()
+                        .enableTableFieldAnnotation()
+                        .enableChainModel()
+                        .controllerBuilder()
+                        .enableRestStyle()
+                        .build())
                 .execute();
     }
 
