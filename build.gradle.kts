@@ -31,7 +31,6 @@ dependencies {
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
     testImplementation("org.springframework.security:spring-security-test")
     compileOnly("org.projectlombok:lombok")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
@@ -40,6 +39,10 @@ dependencies {
     implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7")
     implementation("com.baomidou:mybatis-plus-generator:3.5.7")
     implementation("org.apache.velocity:velocity-engine-core:2.3")
+    implementation("com.mybatis-flex:mybatis-flex-spring-boot-starter:1.9.6")
+    annotationProcessor("com.mybatis-flex:mybatis-flex-processor:1.9.6")
+    implementation("com.mybatis-flex:mybatis-flex-codegen:1.9.6")
+    implementation("com.zaxxer:HikariCP:5.1.0")
 }
 
 tasks.withType<Test> {

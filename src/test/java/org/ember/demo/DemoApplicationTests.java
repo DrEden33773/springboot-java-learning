@@ -2,34 +2,44 @@ package org.ember.demo;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.mybatisflex.codegen.Generator;
+import com.mybatisflex.codegen.config.GlobalConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.annotations.Mapper;
-import org.ember.demo.entity.Student;
-import org.ember.demo.service.IStudentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @SpringBootTest
 class DemoApplicationTests {
 
     @Autowired
-    private IStudentService studentService;
+    private HikariDataSource dataSource;
 
     @Test
-    void testStudentService() {
-        final var result = studentService.query().eq("name", "mizuki").list();
-        final var idSet = result.stream().map(Student::getId).collect(Collectors.toSet());
-        final var expectedIdSet = Set.of(2, 3);
-        assert idSet.equals(expectedIdSet);
+    void mybatisFlexGenerator() {
+        final var globalConfig = new GlobalConfig();
+
+        globalConfig.getJavadocConfig()
+                .setAuthor("Eden");
+        globalConfig.getPackageConfig()
+                .setBasePackage("org.ember.demo");
+        globalConfig.enableEntity()
+                .setWithLombok(true)
+                .setJdkVersion(21);
+        globalConfig.enableMapper()
+                .setMapperAnnotation(true);
+        globalConfig.enableService();
+        globalConfig.enableServiceImpl()
+                .setCacheExample(true);
+        globalConfig.enableController()
+                .setRestStyle(true);
+        globalConfig.enableMapperXml();
+
+        final var generator = new Generator(dataSource, globalConfig);
+
+        generator.generate();
     }
-
-
-    @Autowired
-    private HikariDataSource dataSource;
 
     @Test
     void mybatisPlusGenerator() {
