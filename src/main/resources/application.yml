@@ -1,6 +1,6 @@
 spring:
   application:
-    name: springboot-kotlin-learning
+    name: springboot-java-learning
 
   security:
     user:

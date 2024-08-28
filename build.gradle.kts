@@ -36,8 +36,6 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7")
-    implementation("com.baomidou:mybatis-plus-generator:3.5.7")
     implementation("org.apache.velocity:velocity-engine-core:2.3")
     implementation("com.mybatis-flex:mybatis-flex-spring-boot-starter:1.9.6")
     annotationProcessor("com.mybatis-flex:mybatis-flex-processor:1.9.6")
