@@ -37,7 +37,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.apache.velocity:velocity-engine-core:2.3")
-    implementation("com.mybatis-flex:mybatis-flex-spring-boot-starter:1.9.6")
+    implementation("com.mybatis-flex:mybatis-flex-spring-boot3-starter:1.9.6")
     annotationProcessor("com.mybatis-flex:mybatis-flex-processor:1.9.6")
     implementation("com.mybatis-flex:mybatis-flex-codegen:1.9.6")
     implementation("com.zaxxer:HikariCP:5.1.0")
